@@ -1,2 +1,2 @@
 # AWS-projects
-I will be posting my AWS projects here.
+I just started my AWS cloud journey and I will be posting my projects here.
