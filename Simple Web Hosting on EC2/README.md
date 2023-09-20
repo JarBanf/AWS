@@ -1,5 +1,5 @@
 # Simple Web Hosting on EC2
-#### Tasks
+**Tasks**
 - Step 1: Create EC2 instance  
 - Step 2: Connect to EC2 instance  
 - Step 3: Install Apache web server  
