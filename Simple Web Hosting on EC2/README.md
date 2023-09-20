@@ -11,6 +11,7 @@
 1. Open the Amazon `EC2` console.
 
 <img width="860" alt="select EC2" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/1a%20select%20EC2.png?raw=true">
+<br/>
 
 2. From the EC2 console dashboard, in the Launch instance box, choose `Launch instance`.
 3. Configure instance  
@@ -25,7 +26,4 @@ h. Summary & `Launch instance`
 4. Instance is running.
 
 
-
-
-
-#### ......IN THE MAKING :)
+**......IN THE MAKING :)**
