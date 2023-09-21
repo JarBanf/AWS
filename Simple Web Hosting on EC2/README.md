@@ -6,7 +6,8 @@
 - Step 4: Set file permissions  
 - Step 5: Add index.html  
 - Step 6: Enable & test TLS
-- [Step1: Create EC2 instance](https://github.com/JarBanf/AWS-Projects/tree/main/Simple%20Web%20Hosting%20on%20EC2#step-1-create-ec2-instance)  
+- [Step 1: Create EC2 instance](#step-1-create-ec2-instance)
+- [Step 6: Enable & test TLS](#step-6-enable--test-tls)  
 
 ### Step 1: Create EC2 instance
 1. Open the Amazon `EC2` console.
