@@ -65,4 +65,11 @@
 <img width="1000" alt="Instance is running" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/1l%20instance%20running.png?raw=true">
 <br/>
 
+### Step 2: Connect to EC2 instance
+### Step 3: Install Apache web server
+### Step 4: Set file permissions
+### Step 5: Add index.html
+### Step 6: Enable & test TLS
+
+
 **......IN THE MAKING :)**
