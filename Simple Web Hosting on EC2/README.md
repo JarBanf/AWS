@@ -66,6 +66,21 @@
 <br/>
 
 ### Step 2: Connect to EC2 instance
+1. Open the instance ancd click `Connect`.
+
+<img width="1000" alt="Connect to instance" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/2a%20connect%20to%20instance.png?raw=true">
+<br/>
+
+2. Select `EC2 Instance Connect` and click `Connect`.
+
+<img width="600" alt="EC2 Instance Connect" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/2b%20ec2%20instance%20connect.png?raw=true">
+<br/>
+
+3. New tab appears and now connected to instance.
+
+<img width="500" alt="Connected to instance" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/2c%20connected%20to%20instance%20.png?raw=true">
+<br/>
+
 ### Step 3: Install Apache web server
 ### Step 4: Set file permissions
 ### Step 5: Add index.html
