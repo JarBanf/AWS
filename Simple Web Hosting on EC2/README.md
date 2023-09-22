@@ -1,12 +1,13 @@
 # Simple Web Hosting on EC2
 **Tasks**
-- Step 1: Create EC2 instance  
-- Step 2: Connect to EC2 instance  
-- Step 3: Install Apache web server  
-- Step 4: Set file permissions  
-- Step 5: Add index.html  
-- Step 6: Enable & test TLS
+- Step 1: Create EC2 instance
+- [Step 1: Create EC2 instance](#step-1-create-ec2-instance)
+- [Step 2: Connect to EC2 instance](#step-2-connect-to-ec2-instance)
+- [Step 3: Install Apache web server](#step-3-install-apache-web-server)
+- [Step 4: Set file permissions](#step-4-set-file-permissions)
+- [Step 5: Enable & Add index.html](#step-5-add-static-website)
 - [Step 6: Enable & test TLS](#step-6-enable--test-tls)
+
 ### Step 1: Create EC2 instance
 1. Open the Amazon `EC2` console.
 
