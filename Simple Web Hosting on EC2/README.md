@@ -162,6 +162,19 @@ Now, `ec2-user` (and any future members of the `apache` group) can add, delete, 
 
 2. In the text editor write `HTML code`.
 
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hello, World!</title>
+	</head>
+	<body>
+		<h1>Hello, World!</h1>
+		<p>This is a basic HTML page.</p>
+	</body>
+</html>
+```
+
 <img width="350" alt="Write HTML code in Vim editer" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/5a%20create%20index.html%20file.png?raw=true">
 <br/>
 
