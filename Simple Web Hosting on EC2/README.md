@@ -6,7 +6,7 @@
 - Step 4: Set file permissions  
 - Step 5: Add index.html  
 - Step 6: Enable & test TLS
-
+- [Step 6: Enable & test TLS]([#step-6-enable--test-tls)
 ### Step 1: Create EC2 instance
 1. Open the Amazon `EC2` console.
 
@@ -82,8 +82,79 @@
 <br/>
 
 ### Step 3: Install Apache web server
+1. Perform quick update to make sure all software packages are up to date.
+
+`sudo yum update -y`
+
+<img width="600" alt="Quick software update" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/3a%20update%20software%20packages.png?raw=true">
+<br/>
+
+2. Install Apache web server.
+
+`sudo yum install -y httpd`
+
+<img width="600" alt="Install Apache web server" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/3b%20install%20apache%20web%20server.png?raw=true">
+<br/>
+
+3. Start  Apache web server.
+
+`sudo systemctl start httpd`
+
+4. Configure the Apache web server to start at each system boot.
+
+`sudo systemctl enable httpd`
+
+5. Verify that web server is on.
+
+`systemctl status httpd`
+
+<img width="900" alt="Verify web server is on" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/3c%20start%20enable%20verify%20web%20server%20.png?raw=true">
+<br/>
+
+6. Test web server.
+   
+6a. Grab the Public IPv4 address for Instance (My Web Server) using the Amazon EC2 console.
+
+<img width="1000" alt="Grab Public IPv4 address" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/3d%20grab%20public%20ip4%20address.png?raw=true">
+<br/>
+
+6b. Open new browser tab and insert the Public IPv4 address of the instance.
+
+<img width="1000" alt="Test web server" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/3e%20test%20web%20server.png?raw=true">
+<br/>
+
 ### Step 4: Set file permissions
-### Step 5: Add index.html
+Apache httpd serves files that are kept in a directory called the Apache document root. The Amazon Linux Apache document root is `/var/www/html`, which by default is owned by root. To allow the `ec2-user` account to manipulate files in this directory, you must modify the ownership and permissions of the directory.
+1. Add user to the `apache` group.
+
+`sudo usermod -a -G apache ec2-user`
+
+2. Log out and then log back in to pick up the new group, and then verify membership.
+
+2a. Log out. 
+
+`exit`
+
+2b. Reconnect back to instance.
+
+2c. Verify membership. 
+
+`group`
+
+<img width="700" alt="Verify membership" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/4a%20verify%20membership.png?raw=true">
+<br/>
+
+3. Change the ownership of `/var/www` and its contents to the `apache` group.
+
+`sudo chown -R ec2-user:apache /var/www`
+
+4. To add group write permissions and to set the group ID on future subdirectories, change the directory permissions of `/var/www` and its subdirectories.
+
+`sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;`
+
+Now, `ec2-user` (and any future members of the `apache` group) can add, delete, and edit files in the Apache document root, enabling you to add content, such as a static website.
+
+### Step 5: Add static website
 ### Step 6: Enable & test TLS
 
 
