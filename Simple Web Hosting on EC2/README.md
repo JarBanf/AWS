@@ -70,7 +70,7 @@ An instance is a virtual server in the AWS Cloud.
 <br/>
 
 ### Step 2: Connect to EC2 instance
-1. Open the instance ancd click `Connect`.
+1. Open the instance and click `Connect`.
 
 <img width="1000" alt="Connect to instance" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/2a%20connect%20to%20instance.png?raw=true">
 <br/>
@@ -128,7 +128,7 @@ systemctl status httpd
 
 6. Test web server.
    
-6a. Grab the `Public IPv4 address` for `Instance (My Web Server)` using the `Amazon EC2 console`.
+6a. Grab the `Public IPv4 address` for `Instance (My Web Server)` using the Amazon `EC2` console.
 
 <img width="1000" alt="Grab Public IPv4 address" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/3d%20grab%20public%20ip4%20address.png?raw=true">
 <br/>
@@ -187,7 +187,7 @@ Now, `ec2-user` (and any future members of the `apache` group) can add, delete, 
 vim /var/www/html/index.html
 ```
 
-2. In the text editor write `HTML code`.
+2. In the text editor write `HTML` code.
 
 ```html
 <!DOCTYPE html>
@@ -206,7 +206,7 @@ vim /var/www/html/index.html
 <br/>
 
 3. Press `esc` to exit insert mode.
-4. Save file and exit the Vim text editer.
+4. Save file and exit the Vim text editor.
 
 ```
 :wq
@@ -241,7 +241,7 @@ sudo ./make-dummy-cert localhost.crt
 
 3. Modify `ssl.conf`.
 
-3a. Use Vim text editer to open `ssl.conf`.
+3a. Use Vim text editor to open `ssl.conf` in the `/etc/httpd/conf.d` directory.
 
 ```
 sudo vim /etc/httpd/conf.d/ssl.conf
@@ -262,7 +262,7 @@ sudo vim /etc/httpd/conf.d/ssl.conf
 
 3e. Press `esc` to exit insert mode.
 
-3f. Save file and exit the Vim text editer.
+3f. Save file and exit the Vim text editor.
 
 ```
 :wq
@@ -279,14 +279,14 @@ sudo systemctl restart httpd
 
 5. Test TLS.
 
-5a. Insert the `Public IPv4 address` of the instance in a new browser tab with `https://` in front of it. When given a warning select `Accept the Risk and Continue`.
+5a. Insert the `Public IPv4 address` of the instance in a new browser tab with `https://` in front of it. Because you are connecting to a site with a self-signed, untrusted host certificate, your browser may display security warnings. `Accept the Risk and Continue` and proceed to the website.
 
 <img width="800" alt="Test TLS" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/6d%20test%20tls%20warning%20screen.png?raw=true">
 <br/>
 
-5b. TLS successfully configured.
+5b. TLS successfully configured on server. All data passing between the browser and server is now encrypted
 
 <img width="700" alt="TLS Successfully configured" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/6e%20succesfully%20configured%20tls.png?raw=true">
 <br/>
 
-Because this is a learning project I will not follow the process to obtain a CA-signed certificate.
+Because this is a learning project I will not follow the process to obtain a trusted CA-signed certificate. A trusted CA-signed certificate not only encrypts, but also publicly authenticates you as the owner of the site.
