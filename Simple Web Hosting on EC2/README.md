@@ -4,7 +4,7 @@
 - [Step 2: Connect to EC2 instance](#step-2-connect-to-ec2-instance)
 - [Step 3: Install Apache web server](#step-3-install-apache-web-server)
 - [Step 4: Set file permissions](#step-4-set-file-permissions)
-- [Step 5: Enable & Add index.html](#step-5-add-static-website)
+- [Step 5: Add static webpage](#step-5-add-static-webpage)
 - [Step 6: Enable & test TLS](#step-6-enable--test-tls)
 
 ### Step 1: Create EC2 instance
@@ -125,6 +125,7 @@
 
 ### Step 4: Set file permissions
 Apache httpd serves files that are kept in a directory called the Apache document root. The Amazon Linux Apache document root is `/var/www/html`, which by default is owned by root. To allow the `ec2-user` account to manipulate files in this directory, you must modify the ownership and permissions of the directory.
+
 1. Add user to the `apache` group.
 
 `sudo usermod -a -G apache ec2-user`
@@ -139,7 +140,7 @@ Apache httpd serves files that are kept in a directory called the Apache documen
 
 2c. Verify membership. 
 
-`group`
+`groups`
 
 <img width="700" alt="Verify membership" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/4a%20verify%20membership.png?raw=true">
 <br/>
@@ -154,7 +155,29 @@ Apache httpd serves files that are kept in a directory called the Apache documen
 
 Now, `ec2-user` (and any future members of the `apache` group) can add, delete, and edit files in the Apache document root, enabling you to add content, such as a static website.
 
-### Step 5: Add static website
+### Step 5: Add static webpage
+1. Use Vim text editor to create and open `index.html` file in the `/var/www/html` directory.
+
+`vim /var/www/html/index.html`
+
+2. In the text editor write `HTML code`.
+
+<img width="350" alt="Write HTML code in Vim editer" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/5a%20create%20index.html%20file.png?raw=true">
+<br/>
+
+3. Press `esc` to exit insert mode.
+4. Save file and exit the Vim text editer.
+
+`:wq`
+
+<img width="350" alt="Save and exit Vim text editer" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/5b%20save%20and%20exit.png?raw=true">
+<br/>
+
+5. View created web page by inserting the Public IPv4 address of the instance in a new browser tab.
+
+<img width="700" alt="View created web page" src="https://github.com/JarBanf/AWS-Projects/blob/main/Simple%20Web%20Hosting%20on%20EC2/screenshots/5c%20preview%20web%20page.png?raw=true">
+<br/>
+
 ### Step 6: Enable & test TLS
 
 
