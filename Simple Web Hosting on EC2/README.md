@@ -6,7 +6,7 @@
 - Step 4: Set file permissions  
 - Step 5: Add index.html  
 - Step 6: Enable & test TLS
-- [Step 6: Enable & test TLS]([#step-6-enable--test-tls)
+- [Step 6: Enable & test TLS](#step-6-enable--test-tls)
 ### Step 1: Create EC2 instance
 1. Open the Amazon `EC2` console.
 
