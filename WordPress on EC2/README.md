@@ -19,7 +19,6 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides on-demand, scalable computing
 ### Step 2: Create a security group
 ### Step 3: Create & connect to instance
 ### Step 4: Install packages
-
 1. Perform quick update to make sure all software packages are up to date.
 
 ```
@@ -51,7 +50,6 @@ sudo systemctl enable httpd && sudo systemctl enable mariadb
 ```
 
 ### Step 5: Create a database user and database for WordPress
-
 WordPress installation needs to store information, such as blog posts and user comments, in a database. This procedure helps you create your blog's database and a user that is authorized to read and save information to it.
 
 1. Secure the database server.
@@ -119,7 +117,6 @@ exit
 ```
 
 ### Step 6: Create and edit the wp-config.php file
-
 The WordPress installation folder contains a sample configuration file called `wp-config-sample.php`. In this procedure, I copy this file and edit it to fit my specific configuration.
 
 1. Copy the `wp-config-sample.php` file to a file called `wp-config.php`. This creates a new configuration file and keeps the original sample file intact as a backup.
@@ -168,7 +165,6 @@ define('NONCE_SALT',       '=%5+;nlqk3p v(o@g)OifIU`&:tn/,G|$ne ghaTKmg!:_LgjJ3/
 2e. Save the file and exit text editor.
 
 ### Step 7: Install the WordPress files under the Apache document root
-
 Now that I've unzipped the installation folder, created a MySQL database and user, and customized the WordPress configuration file, I'm ready to copy the installation files to the web server document root so I can run the installation script that completes the installation.
 
 1. Copy the contents of the wordpress installation directory (but not the directory itself) to the Apache document root.
@@ -178,7 +174,6 @@ sudo cp -r wordpress/* /var/www/html/
 ```
 
 ### Step 8: Allow WordPress to use permalinks.
-
 WordPress permalinks need to use Apache .htaccess files to work properly, but this is not enabled by default on Amazon Linux. This procedure allows all overrides in the Apache document root.
 
 1. Open the httpd.conf file with `nano` text editor.
@@ -228,7 +223,6 @@ AllowOverride All
 4. Save the file and exit text editor.
 
 ### Step 9: Install the PHP graphics drawing library.
-
 The GD library for PHP enables you to modify images. Install this library if you need to crop the header image for your blog.
 
 1. Install the PHP graphics drawing library.
@@ -238,7 +232,6 @@ sudo dnf install php-gd
 ```
 
 ### Step 10: Fix file permissions for the Apache web server.
-
 Some of the available features in WordPress require write access to the Apache document root (such as uploading media though the Administration screens).
 
 1. Add `ec2-user` to the `apache` group.
@@ -293,7 +286,29 @@ sudo systemctl restart httpd
 ```
 
 ### Step 11: Test web server.
-
 1. In a web browser, type the URL of the WordPress blog. WordPress installation script will appear.
 
 ### Step 12: Enable & Test TLS
+Secure Sockets Layer/Transport Layer Security (SSL/TLS) creates an encrypted channel between a web server and web client that protects data in transit from being eavesdropped on.
+
+1. Add TLS support by installing the Apache module `mod_ssl`.
+
+```
+sudo dnf install openssl mod_ssl
+```
+
+2. After entering the following command, you will be taken to a prompt where you can enter information about your site.
+
+```
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/pki/tls/private/apache-selfsigned.key -out /etc/pki/tls/certs/apache-selfsigned.crt
+```
+
+3. Restart Apache.
+
+```
+sudo systemctl restart httpd
+```
+
+4. Test TLS by entering the IP address or fully qualified domain name of your EC2 instance into a browser URL bar with the prefix `https://`.
+
+Because this is a learning project I will not follow the process to obtain a trusted CA-signed certificate. A trusted CA-signed certificate not only encrypts, but also publicly authenticates you as the owner of the site.
