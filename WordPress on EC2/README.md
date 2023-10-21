@@ -12,7 +12,8 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides on-demand, scalable computing
 - [Step 8: Allow WordPress to use permalinks](#step-8-allow-wordpress-to-use-permalinks)
 - [Step 9: Install the PHP graphics drawing library](#step-9-install-the-php-graphics-drawing-library)
 - [Step 10: Fix file permissions for the Apache web server](#step-10-fix-file-permissions-for-the-Apache-web-server)
-- [Step 15: Enable & Test TLS](#step-15-enable--test-tls)
+- [Step 11: Test web server](#step-11-test-web-server)
+- [Step 12: Enable & Test TLS](#step-12-enable--test-tls)
 
 ### Step 1: Create a key pair
 ### Step 2: Create a security group
@@ -41,6 +42,12 @@ sudo wget https://wordpress.org/latest.tar.gz
 
 ```
 sudo tar -xzf latest.tar.gz
+```
+
+5. Ensure that the `httpd` and database services start at every system boot.
+
+```
+sudo systemctl enable httpd && sudo systemctl enable mariadb
 ```
 
 ### Step 5: Create a database user and database for WordPress
@@ -284,3 +291,9 @@ find /var/www -type f -exec sudo chmod 0644 {} \;
 ```
 sudo systemctl restart httpd
 ```
+
+### Step 11: Test web server.
+
+1. In a web browser, type the URL of the WordPress blog. WordPress installation script will appear.
+
+### Step 12: Enable & Test TLS
