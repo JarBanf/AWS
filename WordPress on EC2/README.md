@@ -107,3 +107,4 @@ FLUSH PRIVILEGES;
 exit
 ```
 
+### Step 6: Create and edit the wp-config.php file
