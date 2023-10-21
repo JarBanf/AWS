@@ -52,3 +52,22 @@ The default installation of the MariaDB server has several features that are gre
 sudo systemctl start mariadb httpd
 ```
 
+1b. Run `mysql_secure_installation`.
+
+```
+sudo mysql_secure_installation
+```
+
+1c. When prompted, type the current root password. By default, the root account does not have a password set. Press `Enter`.
+
+1d. Type `Y` to set a password, and type a secure password twice.
+
+1e. Type `Y` to remove the anonymous user accounts.
+
+1f. Type `Y` to disable the remote root login.
+
+1g. Type `Y` to remove the test database.
+
+1h. Type `Y` to reload the privilege tables and save your changes.
+
+2. 
