@@ -7,7 +7,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides on-demand, scalable computing
 - [Step 3: Create & connect to instance](#step-3-create--connect-to-instance)
 - [Step 4: Install packages](#step-4-install-packages)
 - [Step 5: Create a database user and database for WordPress](#step-5-create-a-database-user-and-database-for-wordPress)
-- [Step 6: Create and edit the wp-config.php file](#step-6-create-and-edit-the-wp--config--php-file)
+- [Step 6: Create and edit the wp-config.php file](#step-6-create-and-edit-the-wp-configphp-file)
 - [Step 10: Enable & Test TLS](#step-6-enable--test-tls)
 
 ### Step 1: Create a key pair
