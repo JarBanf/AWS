@@ -35,7 +35,19 @@ sudo wget https://wordpress.org/latest.tar.gz
 4. Unzip and unarchive the installation package. The installation folder is unzipped to a folder called `wordpress`.
 
 ```
-tar -xzf latest.tar.gz
+sudo tar -xzf latest.tar.gz
 ```
 
 ### Step 5: Create a database user and database for WordPress
+
+WordPress installation needs to store information, such as blog posts and user comments, in a database. This procedure helps you create your blog's database and a user that is authorized to read and save information to it.
+
+1. Secure the database server
+The default installation of the MariaDB server has several features that are great for testing and development, but they should be disabled or removed for production servers. The mysql_secure_installation command walks you through the process of setting a root password and removing the insecure features from your installation.
+
+1a. Start the MariaDB server.
+
+```
+sudo systemctl start mariadb httpd
+```
+
