@@ -7,7 +7,8 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides on-demand, scalable computing
 - [Step 3: Create & connect to instance](#step-3-create--connect-to-instance)
 - [Step 4: Install packages](#step-4-install-packages)
 - [Step 5: Create a database user and database for WordPress](#step-5-create-a-database-user-and-database-for-wordPress)
-- [Step 6: Enable & Test TLS](#step-6-enable--test-tls)
+- [Step 6: Create and edit the wp-config.php file](#step-6-create-and-edit-the-wp--config--php-file)
+- [Step 10: Enable & Test TLS](#step-6-enable--test-tls)
 
 ### Step 1: Create a key pair
 ### Step 2: Create a security group
@@ -70,4 +71,39 @@ sudo mysql_secure_installation
 
 1h. Type `Y` to reload the privilege tables and save your changes.
 
-2. 
+2. Log in to the database server as the root user. Enter your database root password when prompted.
+
+```
+mysql -u root -p
+```
+
+3. Create a user and password for your MySQL database. WordPress installation uses these values to communicate with MySQL database.
+
+```
+CREATE USER 'jar-ban'@'localhost' IDENTIFIED BY 'My_Strong_Password';
+```
+
+4. Create a database.
+
+```
+CREATE DATABASE `wordpress-db`;
+```
+
+5. Grant full privileges for database to the WordPress user.
+
+```
+GRANT ALL PRIVILEGES ON `wordpress-db`.* TO "jar-ban"@"localhost";
+```
+
+6. Flush the database privileges to pick up all changes.
+
+```
+FLUSH PRIVILEGES;
+```
+
+7. Exit the mysql client.
+
+```
+exit
+```
+
