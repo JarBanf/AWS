@@ -309,6 +309,6 @@ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/pki/tls/pr
 sudo systemctl restart httpd
 ```
 
-4. Test TLS by entering the IP address or fully qualified domain name of your EC2 instance into a browser URL bar with the prefix `https://`.
+4. Test TLS by entering the IP address or fully qualified domain name of the EC2 instance into a browser URL bar with the prefix `https://`.
 
 Because this is a learning project I will not follow the process to obtain a trusted CA-signed certificate. A trusted CA-signed certificate not only encrypts, but also publicly authenticates you as the owner of the site.
