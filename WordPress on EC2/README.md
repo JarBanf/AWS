@@ -8,6 +8,7 @@ Amazon Elastic Compute Cloud (Amazon EC2) provides on-demand, scalable computing
 - [Step 4: Install packages](#step-4-install-packages)
 - [Step 5: Create a database user and database for WordPress](#step-5-create-a-database-user-and-database-for-wordPress)
 - [Step 6: Create and edit the wp-config.php file](#step-6-create-and-edit-the-wp-configphp-file)
+- [Step 7: Install the WordPress files under the Apache document root](#step-7-Step 7-install-the-wordpress-files-under-the-apache-document-root)
 - [Step 10: Enable & Test TLS](#step-6-enable--test-tls)
 
 ### Step 1: Create a key pair
@@ -108,3 +109,53 @@ exit
 ```
 
 ### Step 6: Create and edit the wp-config.php file
+
+The WordPress installation folder contains a sample configuration file called `wp-config-sample.php`. In this procedure, I copy this file and edit it to fit my specific configuration.
+
+1. Copy the `wp-config-sample.php` file to a file called `wp-config.php`. This creates a new configuration file and keeps the original sample file intact as a backup.
+
+```
+cp wordpress/wp-config-sample.php wordpress/wp-config.php
+```
+
+2. Edit the wp-config.php file with `nano` text editor and enter values for installation.
+
+```
+nano wordpress/wp-config.php
+```
+
+2a. Find the line that defines `DB_NAME` and change `database_name_here` to the database name that I created in step 5.
+
+```
+define('DB_NAME', 'wordpress-db');
+```
+
+2b. Find the line that defines `DB_USER` and change `username_here` to the database user that I created in step 5.
+
+```
+define('DB_USER', 'jar-ban');
+```
+
+2c. Find the line that defines `DB_PASSWORD` and change `password_here` to the password that I created in step 5.
+
+```
+define('DB_PASSWORD', 'My_Strong_Password');
+```
+
+2d. Find the section called `Authentication Unique Keys and Salts`. These `KEY` and `SALT` values provide a layer of encryption to the browser cookies that WordPress users store on their local machines. Basically, adding long, random values here makes your site more secure. Visit `https://api.wordpress.org/secret-key/1.1/salt/` to randomly generate a set of key values that you can copy and paste into your `wp-config.php` file.
+
+```
+define('AUTH_KEY',         'NelDy%-UlL?KCn2h]|+f9&oT5g%]=&-IIs858k|kna7~|+-h#2h^S`#Q&2=-Ne~S');
+define('SECURE_AUTH_KEY',  'U /0#e,v@d0}@$5L[mA3 O>VtXV95|;6MCZStB+z|SfXV$+gIQp-%hA=7tF{Ty0s');
+define('LOGGED_IN_KEY',    ';Z2@[J+#IwUwJqZ-[y?AF>*kA}{&P](S03<YO9#ZR4A7%s9s_n&L9x=9FsNH2Tfe');
+define('NONCE_KEY',        '--X|7b ak7|7Q ]TmLf1bX%8 13$K2dfk;lb}-c;p@W.G~Mj-v`C9H dm;VRz@vW');
+define('AUTH_SALT',        '}`2e+tOW j~XNn<4${P ^J|fiN|pV7KMf4{/YeSUKLF;C_,4Anw3m#xLdt;1(py4');
+define('SECURE_AUTH_SALT', 'M_L;T$fAi|&.s8YONi5yjT2b+KtAfx~|#+t)c`Q89$d)Q%3azRd$ l/f sRg]|HE');
+define('LOGGED_IN_SALT',   '-QjGu+nJkHsGZ|tHF>Ft90`XQNT;L,7Eq-qaB<kCKUYkuR9r~5Q^3)j|dD`WkJ9H');
+define('NONCE_SALT',       '=%5+;nlqk3p v(o@g)OifIU`&:tn/,G|$ne ghaTKmg!:_LgjJ3/J9>M h!Kz-tf');
+```
+
+2e. Save the file and exit text editor.
+
+### Step 7: Install the WordPress files under the Apache document root
+
